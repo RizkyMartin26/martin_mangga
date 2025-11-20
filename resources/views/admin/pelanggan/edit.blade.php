@@ -27,16 +27,18 @@ The above copyright notice and this permission notice shall be included in all c
     <meta name="author" content="Themesberg">
 
     <!-- Favicon -->
-    <link rel="apple-touch-icon" sizes="120x120" href="{{asset('assets-admin/img/favicon/apple-touch-icon.png')}}">
-    <link rel="icon" type="image/png" sizes="32x32" href="{{asset('assets-admin/img/favicon/favicon-32x32.png')}}">
-    <link rel="icon" type="image/png" sizes="16x16" href="{{asset('assets-admin/img/favicon/favicon-16x16.png')}}">
-    <link rel="manifest" href="{{asset('assets-admin/img/favicon/site.webmanifest')}}">
-    <link rel="mask-icon" href="{{asset('assets-admin/img/favicon/safari-pinned-tab.svg')}}" color="#ffffff">
+    <link rel="apple-touch-icon" sizes="120x120" href="{{ asset('assets-admin/img/favicon/apple-touch-icon.png') }}">
+    <link rel="icon" type="image/png" sizes="32x32"
+        href="{{ asset('assets-admin/img/favicon/favicon-32x32.png') }}">
+    <link rel="icon" type="image/png" sizes="16x16"
+        href="{{ asset('assets-admin/img/favicon/favicon-16x16.png') }}">
+    <link rel="manifest" href="{{ asset('assets-admin/img/favicon/site.webmanifest') }}">
+    <link rel="mask-icon" href="{{ asset('assets-admin/img/favicon/safari-pinned-tab.svg') }}" color="#ffffff">
     <meta name="msapplication-TileColor" content="#ffffff">
     <meta name="theme-color" content="#ffffff">
 
     <!-- Volt CSS -->
-    <link type="text/css" href="{{asset('assets-admin/css/volt.css') }}" rel="stylesheet">
+    <link type="text/css" href="{{ asset('assets-admin/css/volt.css') }}" rel="stylesheet">
 
 </head>
 
@@ -189,8 +191,8 @@ The above copyright notice and this permission notice shall be included in all c
                                             clip-rule="evenodd"></path>
                                     </svg>
                                 </span>
-                                <input type="text" class="form-control" id="topbarInputIconLeft" placeholder="Search"
-                                    aria-label="Search" aria-describedby="topbar-addon">
+                                <input type="text" class="form-control" id="topbarInputIconLeft"
+                                    placeholder="Search" aria-label="Search" aria-describedby="topbar-addon">
                             </div>
                         </form>
                         <!-- / Search form -->
@@ -199,8 +201,8 @@ The above copyright notice and this permission notice shall be included in all c
                     <ul class="navbar-nav align-items-center">
                         <li class="nav-item dropdown">
                             <a class="nav-link text-dark notification-bell unread dropdown-toggle"
-                                data-unread-notifications="true" href="#" role="button" data-bs-toggle="dropdown"
-                                data-bs-display="static" aria-expanded="false">
+                                data-unread-notifications="true" href="#" role="button"
+                                data-bs-toggle="dropdown" data-bs-display="static" aria-expanded="false">
                                 <svg class="icon icon-sm text-gray-900" fill="currentColor" viewBox="0 0 20 20"
                                     xmlns="http://www.w3.org/2000/svg">
                                     <path
@@ -229,7 +231,8 @@ The above copyright notice and this permission notice shall be included in all c
                                                         <small class="text-danger">a few moments ago</small>
                                                     </div>
                                                 </div>
-                                                <p class="font-small mt-1 mb-0">Added you to an event "Project stand-up"
+                                                <p class="font-small mt-1 mb-0">Added you to an event "Project
+                                                    stand-up"
                                                     tomorrow at 12:30 AM.</p>
                                             </div>
                                         </div>
@@ -251,7 +254,8 @@ The above copyright notice and this permission notice shall be included in all c
                                                         <small class="text-danger">2 hrs ago</small>
                                                     </div>
                                                 </div>
-                                                <p class="font-small mt-1 mb-0">You've been assigned a task for "Awesome
+                                                <p class="font-small mt-1 mb-0">You've been assigned a task for
+                                                    "Awesome
                                                     new project".</p>
                                             </div>
                                         </div>
@@ -278,7 +282,7 @@ The above copyright notice and this permission notice shall be included in all c
                                             </div>
                                         </div>
                                     </a>
-                                    <a href="{{route('pelanggan.index')}}"><class="dropdown-item text-center fw-bold
+                                    <a href="{{ route('pelanggan.index') }}"><class="dropdown-item text-center fw-bold
                                             rounded-bottom py-3">
                                             <svg class="icon icon-xxs text-gray-400 me-1" fill="currentColor"
                                                 viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
@@ -371,7 +375,8 @@ The above copyright notice and this permission notice shall be included in all c
             <div class="col-12 mb-4">
                 <div class="card border-0 shadow components-section">
                     <div class="card-body">
-                        <form action="{{route('pelanggan.edit', $item->pelanggan_id)}}" method="POST">
+                        <form action="{{ route('pelanggan.update', $dataPelanggan->pelanggan_id) }}" method="POST">
+
                             @csrf
                             @method('PUT')
                             <div class="row mb-4">
@@ -379,15 +384,15 @@ The above copyright notice and this permission notice shall be included in all c
                                     <!-- First Name -->
                                     <div class="mb-3">
                                         <label for="first_name" class="form-label">First name</label>
-                                        <input type="text" name=" first_name" id="first_name" class="form-control"
-                                            required value="{{ $dataPelanggan->first_name }}">
+                                        <input type="text" name=" first_name" id="first_name"
+                                            class="form-control" required value="{{ $dataPelanggan->first_name }}">
                                     </div>
 
                                     <!-- Last Name -->
                                     <div class="mb-3">
                                         <label for="last_name" class="form-label">Last name</label>
-                                        <input type="text" name="last_name" id="last_name" class="form-control" required
-                                            value="{{ $dataPelanggan->last_name }}">
+                                        <input type="text" name="last_name" id="last_name" class="form-control"
+                                            required value="{{ $dataPelanggan->last_name }}">
                                     </div>
                                 </div>
 
@@ -410,7 +415,8 @@ The above copyright notice and this permission notice shall be included in all c
                                                 {{ $dataPelanggan->gender == 'Female' ? 'selected' : '' }} Female
                                             </option>
                                             <option value="Other">Other
-                                                {{ $dataPelanggan->gender == 'Other' ? 'selected' : '' }} Other</option>
+                                                {{ $dataPelanggan->gender == 'Other' ? 'selected' : '' }} Other
+                                            </option>
                                         </select>
                                     </div>
                                 </div>
@@ -419,8 +425,8 @@ The above copyright notice and this permission notice shall be included in all c
                                     <!-- Email -->
                                     <div class="mb-3">
                                         <label for="email" class="form-label">Email</label>
-                                        <input type="text" name="email" id="email" class="form-control" required
-                                            value="{{ $dataPelanggan->email }}">
+                                        <input type="text" name="email" id="email" class="form-control"
+                                            required value="{{ $dataPelanggan->email }}">
                                     </div>
 
                                     <!-- Phone -->
@@ -449,7 +455,8 @@ The above copyright notice and this permission notice shall be included in all c
             <div class="row">
                 <div class="col-12 col-md-4 col-xl-6 mb-4 mb-md-0">
                     <p class="mb-0 text-center text-lg-start">© 2019-<span class="current-year"></span> <a
-                            class="text-primary fw-normal" href="https://themesberg.com" target="_blank">Themesberg</a>
+                            class="text-primary fw-normal" href="https://themesberg.com"
+                            target="_blank">Themesberg</a>
                     </p>
                 </div>
                 <div class="col-12 col-md-8 col-xl-6 text-center text-lg-start">
